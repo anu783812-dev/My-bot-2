@@ -7,6 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', (req, res) => {
+    res.send('Bot is running');
+});
+
 app.post('/pair', async (req, res) => {
     try {
         const number = String(req.body.number || '').replace(/\D/g, '');
@@ -25,3 +29,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
