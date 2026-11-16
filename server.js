@@ -11,13 +11,13 @@ app.post('/pair', async (req, res) => {
     try {
         const number = String(req.body.number || '').replace(/\D/g, '');
         if (number.length < 10 || number.length > 15) {
-            return res.status(400).json({ error: 'സാധുവായ നമ്പർ കൊടുക്കുക. രാജ്യ കോഡ് കൂടെ വേണം.' });
+            return res.status(400).json({ error: 'Invalid number. Please provide a valid phone number including the country code.' });
         }
         const code = await getPairingCode(number);
         res.json({ code });
     } catch (e) {
         console.error(e);
-        res.status(500).json({ error: 'കോഡ് ഉണ്ടാക്കുന്നതിൽ പരാജയപ്പെട്ടു.' });
+        res.status(500).json({ error: 'Failed to generate pairing code.' });
     }
 });
 
