@@ -1,4 +1,3 @@
-
 const express = require('express');
 const path = require('path');
 const { getPairingCode, restoreAll } = require('./bot');
@@ -27,3 +26,4 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     restoreAll();
 });
+
