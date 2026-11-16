@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { getPairingCode, restoreAll } = require('./bot');
+const { getPairingCode } = require('./bot');
 
 const app = express();
 
@@ -24,6 +24,4 @@ app.post('/pair', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-    restoreAll();
 });
-
